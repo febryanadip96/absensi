@@ -21,6 +21,20 @@ class MahasiswaController extends Controller
 		return view('user.mahasiswa.index', ['mahasiswas' => $mahasiswas]);
 	}
 
+	public function get($id)
+	{
+		return Mahasiswa::find($id);
+	}
+
+	public function simpan(Request $request)
+	{
+		$mahasiswa = new Mahasiswa();
+		$mahasiswa->nama = $request->nama;
+		$mahasiswa->nrp = $request->nrp;
+		$mahasiswa->save();
+		return back()->with('status', 'Mahasiswa baru telah disimpan');
+	}
+
 	public function matakuliah($id)
 	{
 		$mahasiswa = Mahasiswa::find($id);

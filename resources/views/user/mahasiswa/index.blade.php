@@ -23,4 +23,39 @@
 		@endforeach
     </table>
 </div>
+<div class="modal fade" id="modal-tambah">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Tambah Mahasiswa</h4>
+            </div>
+            <form class="form-horizontal" method="POST" action="{{ url('mahasiswa') }}">
+                <div class="modal-body">
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label for="nrp" class="col-md-4 control-label">NRP</label>
+                        <div class="col-md-6">
+                            <input id="nrp" type="text" class="form-control" name="nrp" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="nama" class="col-md-4 control-label">Nama</label>
+                        <div class="col-md-6">
+                            <input id="nama" type="text" class="form-control" name="nama" required>
+                        </div>
+                    </div>
+				</div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 @endsection
